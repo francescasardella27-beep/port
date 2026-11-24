@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<title>Kekka con due K | Creative Portfolio</title>
+<title>Alex Morgan | Creative Portfolio</title>
 <meta name="description" content="An independent creative portfolio. Work, experiments and ideas.">
 <meta name="robots" content="index,follow">
 <style>
@@ -11,10 +11,11 @@
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
 .story{height:180svh;min-height:720px;position:relative}
-.stage{position:sticky;top:0;height:100svh;min-height:480px;overflow:hidden;isolation:isolate;background:var(--paper)}
+.stage{position:sticky;top:0;height:100svh;min-height:480px;overflow:hidden;isolation:isolate;background:#222}
+.stage::before{content:"";position:absolute;inset:-40px;background:url("background.jpg") center/cover no-repeat;filter:blur(14px);z-index:0}
 .letters{position:absolute;inset:0;z-index:3}
-.soft-surface{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.soft-glyph{fill:var(--ink);pointer-events:visiblePainted;cursor:grab;touch-action:none;outline:none;-webkit-tap-highlight-color:transparent}
+.soft-surface{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;filter:blur(1px)}
+.soft-glyph{fill:#fff;pointer-events:visiblePainted;cursor:grab;touch-action:none;outline:none;-webkit-tap-highlight-color:transparent}
 .soft-glyph:active{cursor:grabbing}
 .soft-glyph:focus-visible{stroke:#789900;stroke-width:2}
 .probe{position:absolute;left:0;top:0;visibility:hidden;pointer-events:none;font-family:Impact,'Arial Black',sans-serif;font-weight:900;font-size:clamp(100px,17vw,310px);line-height:.78}
@@ -192,8 +193,8 @@ return Object.freeze({SoftLetterWorld,traceLetterContours,toSVGPath});
    displayName: your full name, used for screen readers. */
 const content={
   identity:{
-    displayName:"Francesca Sardella",
-    nameLines:["KEKKA","CON DUE K"]
+    displayName:"Alex Morgan",
+    nameLines:["ALEX","MORGAN"]
   }
 };
 </script>
