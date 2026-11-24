@@ -264,7 +264,7 @@ function layout(){
     line.forEach(({g,m,width,height})=>{
       const w=width*scale,h=height/maxHeight*dims.h*.43;
       g.contours=texture(g.char,font,m,fontSize);
-      g.body=world.add({index:g.index,x:cursor+w/2,y:(lines.length===1?.5:row?.735:.245)*dims.h,w,h,contours:g.contours});
+      g.body=world.add({index:g.index,x:cursor+w/2,y:(lines.length===1?.5:row?.72:.28)*dims.h,w,h,contours:g.contours});
       const prior=previous?.bodies[g.index];
       if(prior){const co=Math.cos(prior.angle),si=Math.sin(prior.angle),x=prior.x/previous.width*world.width,y=prior.y/previous.height*world.height;for(const n of g.body.nodes){n.x=x+co*n.rx-si*n.ry;n.y=y+si*n.rx+co*n.ry}world.updateBody(g.body)}
       cursor+=w+gap;
