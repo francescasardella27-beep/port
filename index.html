@@ -205,6 +205,11 @@ const content={
 'use strict';
 const {SoftLetterWorld,traceLetterContours,toSVGPath}=MoushetteSoftLetters;
 const AMBIENT=.85;
+/* Optional text from the link, e.g. ?l1=BURGER&l2=KING. Without it, the name above is used. */
+const params=new URLSearchParams(location.search);
+const fromLink=[params.get('l1'),params.get('l2')].filter(Boolean);
+if(fromLink.length){content.identity.nameLines=fromLink;content.identity.displayName=fromLink.join(' ')}
+document.title=content.identity.displayName;
 const $=id=>document.getElementById(id),story=$('story'),stage=$('stage'),letters=$('letters'),probe=$('probe');
 const SVGNS='http://www.w3.org/2000/svg';
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
