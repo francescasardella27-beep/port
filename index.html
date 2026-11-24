@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<title>Alex Morgan | Creative Portfolio</title>
+<title>KEKKA</title>
 <meta name="description" content="An independent creative portfolio. Work, experiments and ideas.">
 <meta name="robots" content="index,follow">
 <style>
@@ -15,7 +15,7 @@ html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,He
 .stage::before{content:"";position:absolute;inset:-40px;background:url("background.jpg") center/cover no-repeat;filter:blur(14px);z-index:0}
 .letters{position:absolute;inset:0;z-index:3}
 .soft-surface{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;filter:blur(1px)}
-.soft-glyph{fill:#fff;pointer-events:visiblePainted;cursor:grab;touch-action:none;outline:none;-webkit-tap-highlight-color:transparent}
+.soft-glyph{fill:rgba(255,255,255,.4);pointer-events:visiblePainted;cursor:grab;touch-action:none;outline:none;-webkit-tap-highlight-color:transparent}
 .soft-glyph:active{cursor:grabbing}
 .soft-glyph:focus-visible{stroke:#789900;stroke-width:2}
 .probe{position:absolute;left:0;top:0;visibility:hidden;pointer-events:none;font-family:Impact,'Arial Black',sans-serif;font-weight:900;font-size:clamp(100px,17vw,310px);line-height:.78}
@@ -193,8 +193,8 @@ return Object.freeze({SoftLetterWorld,traceLetterContours,toSVGPath});
    displayName: your full name, used for screen readers. */
 const content={
   identity:{
-    displayName:"Alex Morgan",
-    nameLines:["ALEX","MORGAN"]
+    displayName:"KEKKA",
+    nameLines:["KEKKA"]
   }
 };
 </script>
@@ -263,7 +263,7 @@ function layout(){
     line.forEach(({g,m,width,height})=>{
       const w=width*scale,h=height/maxHeight*dims.h*.43;
       g.contours=texture(g.char,font,m,fontSize);
-      g.body=world.add({index:g.index,x:cursor+w/2,y:(row?.735:.245)*dims.h,w,h,contours:g.contours});
+      g.body=world.add({index:g.index,x:cursor+w/2,y:(lines.length===1?.5:row?.735:.245)*dims.h,w,h,contours:g.contours});
       const prior=previous?.bodies[g.index];
       if(prior){const co=Math.cos(prior.angle),si=Math.sin(prior.angle),x=prior.x/previous.width*world.width,y=prior.y/previous.height*world.height;for(const n of g.body.nodes){n.x=x+co*n.rx-si*n.ry;n.y=y+si*n.rx+co*n.ry}world.updateBody(g.body)}
       cursor+=w+gap;
