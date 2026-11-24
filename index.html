@@ -20,6 +20,9 @@ html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,He
 .soft-glyph:focus-visible{stroke:#789900;stroke-width:2}
 .probe{position:absolute;left:0;top:0;visibility:hidden;pointer-events:none;font-family:Impact,'Arial Black',sans-serif;font-weight:900;font-size:clamp(100px,17vw,310px);line-height:.78}
 @media (prefers-reduced-motion:reduce){.story{height:100svh}}
+html.no-bg,html.no-bg body{background:transparent}
+html.no-bg .stage{background:transparent}
+html.no-bg .stage::before{display:none}
 </style>
 </head>
 <body>
@@ -210,6 +213,8 @@ const params=new URLSearchParams(location.search);
 const fromLink=[params.get('l1'),params.get('l2')].filter(Boolean);
 if(fromLink.length){content.identity.nameLines=fromLink;content.identity.displayName=fromLink.join(' ')}
 document.title=content.identity.displayName;
+if(params.get('bg')==='none')document.documentElement.classList.add('no-bg');
+if(params.get('tone')==='dark')document.querySelectorAll('#glassFill stop').forEach(st=>st.setAttribute('stop-color','#090909'));
 const $=id=>document.getElementById(id),story=$('story'),stage=$('stage'),letters=$('letters'),probe=$('probe');
 const SVGNS='http://www.w3.org/2000/svg';
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
